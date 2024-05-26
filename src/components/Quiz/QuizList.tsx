@@ -11,14 +11,13 @@ interface IQuizList extends ComponentPropsWithoutRef<'div'> {
 const QuizList: FC<IQuizList> = ({ userAnswers }) => {
     const props = useQuizContext();
 
-
     const correctAnswers: ICorrectAnswer[] = props.questions.map(q => ({
         qid: q.qid,
         questionType: q.questionType,
         answers: q.answers.map((answ, i) =>
             answ.isCorrect && ({ id: i, ...answ })
-        ).filter(Boolean)
-    }) as ICorrectAnswer);
+        ).filter(Boolean) 
+    })as ICorrectAnswer);
 
     return (
         <div className=' mb-44'>

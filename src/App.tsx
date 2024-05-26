@@ -1,10 +1,10 @@
-import '@/styles/style.scss'
-import Quiz from './components/Quiz'
+import '@/styles/style.scss';
 import { TabPane, Tabs } from '@douyinfe/semi-ui';
 import { useState } from 'react';
-import { tabType } from './Constants/enums';
 import { defaultQuiz } from './Constants/constants';
+import { tabType } from './Constants/enums';
 import { IAnswered, IAnsweredValues } from './Types/QuizTypes';
+import Quiz from './components/Quiz';
 
 function App() {
   const [activeTab, setActiveTab] = useState(tabType.quiz);
