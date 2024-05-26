@@ -17,8 +17,8 @@ const QuizList: FC<IQuizList> = ({ userAnswers }) => {
         questionType: q.questionType,
         answers: q.answers.map((answ, i) =>
             answ.isCorrect && ({ id: i, ...answ })
-        ).filter(Boolean)
-    }) as ICorrectAnswer);
+        ).filter(Boolean) as ICorrectAnswer
+    }));
 
     return (
         <div className=' mb-44'>
