@@ -20,9 +20,10 @@ export function countTotalPoints(questions: IQuestion[], answers: (IAnsweredValu
                 answ.answerIds.forEach(a => {
                     if (question.answers[a].isCorrect) {
                         total += correctPerAnswPoints;
+                        acc.numberOfCorrectAnswers += 1;
                     }
                 });
-                acc.numberOfCorrectAnswers += 1;
+
                 acc.score += total;
                 return acc;
             }
@@ -43,8 +44,12 @@ export function countTotalPoints(questions: IQuestion[], answers: (IAnsweredValu
                 if (answ.answerId === undefined) {
                     return acc;
                 }
-                acc.numberOfCorrectAnswers += 1;
-                acc.score += question.answers[answ.answerId].isCorrect ? question.maxScore : 0;
+
+                if (question.answers[answ.answerId].isCorrect) {
+                    acc.score += question.maxScore;
+                    acc.numberOfCorrectAnswers += 1;
+                }
+
 
                 return acc;
             }
